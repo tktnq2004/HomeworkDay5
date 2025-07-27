@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,11 +92,11 @@
                                     <h6 class="card-title"><?= htmlspecialchars($item[1]) ?></h6>
                                     <p class="card-text text-danger fw-bold"><?= number_format($item[2], 0, ',', '.') ?> đ</p>
                                     <button class="btn btn-sm btn-outline-secondary btn-add-cart"
-                                    data-id="<?= $item[0]?>"
-                                    data-name="<?= $item[1]?>"
-                                    data-price="<?= $item[2]?>"
-                                    data-image="<?= $item[3]?>">
-                                       Add Cart
+                                        data-id="<?= $item[0] ?>"
+                                        data-name="<?= $item[1] ?>"
+                                        data-price="<?= $item[2] ?>"
+                                        data-image="<?= $item[3] ?>">
+                                        Add Cart
                                     </button>
                                 </div>
                             </div>
@@ -110,8 +111,8 @@
     <?php include_once(__DIR__ . '/layouts/scripts.php'); ?>
 
     <script>
-        $(document).ready(function(){
-            $('.btn-add-cart').click(function(e){
+        $(document).ready(function() {
+            $('.btn-add-cart').click(function(e) {
                 e.preventDefault();
                 const id = $(this).data('id');
                 const name = $(this).data('name');
@@ -122,7 +123,7 @@
                     name,
                     price,
                     image,
-                    quantity:1,
+                    quantity: 1,
                 }
 
                 $.ajax({
@@ -130,9 +131,10 @@
                     method: 'post',
                     dataType: 'json',
                     data: data,
-                    success:function(data){
+                    success: function(data) {
                         alert('Add product to cart success');
-                    }, error:function(jqXHR, textStatus, errorThrown){
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
                         alert(textStatus);
                     }
                 })
@@ -141,4 +143,5 @@
     </script>
 
 </body>
+
 </html>
